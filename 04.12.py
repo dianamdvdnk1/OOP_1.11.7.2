@@ -39,7 +39,14 @@ class Philosopher(Process):
                 else:
                     self.left_chopstick.release()
                     print('Philosopher {} Otpustil left_chopstick'.format(self.name))
-            
-if __name__ == '__main__':
-    for num in range(6):
-        Philosopher(str(num), Lock(), Lock()).start()
+
+PHILOSOPHERS = 6
+
+if __name__ == 'main':
+    sticks = [Lock() for _ in range(PHILOSOPHERS)]
+
+    for number_of_stick in range(PHILOSOPHERS):
+        philosopher_name = 'Philosopher #{0}'.format(number_of_stick)
+        stick_left = sticks[number_of_stick - 1]
+        stick_right = sticks[number_of_stick]
+        Philosopher(philosopher_name, stick_left, stick_right).start()
