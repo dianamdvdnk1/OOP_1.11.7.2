@@ -1,9 +1,4 @@
-# Написать программу, предлагающую пользователю записывать данные о зданиях. 
-# Каждое здание имеет: кол-во этажей, высоту, ширину, название. 
-# Первые три свойства обязательно при инициализации должны быть числами, большими нуля. 
-# Хранить данные о зданиях в структурированном файле. 
-# Написать дополнительную программу (или написать 2 в 1 с меню выбора действий - по желанию), 
-# которая читает здания из файла и выводит информацию о текущих записанных зданиях.
+
 import json 
 
 class NotValidBuilding(Exception):
@@ -21,7 +16,7 @@ class Buildings:
             raise ValueError
 
     def is_valid(self):
-        if self.stairs < 1 and not isinstance(self.stairs, int) and self.height  <= 0 and not isinstance(self.height, int) and self.weight <= 0 and not isinstance(self.weight, int):
+        if self.stairs < 1 or not isinstance(self.stairs, int) or self.height  <= 1 or not isinstance(self.height, int) or self.weight <= 1 or not isinstance(self.weight, int):
             return False
         return True
         
