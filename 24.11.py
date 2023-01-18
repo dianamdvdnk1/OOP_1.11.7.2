@@ -47,5 +47,9 @@ while True:
             # print(slovar)
             for i in slovar:
                 print('Name = {} stairs = {}, height = {}, weight = {}'.format(i, slovar[i][0], slovar[i][1], slovar[i][2]))
+    
+    elif build == 'q':
+        print('Bye')
+        break
     else:
         print('Write correct num of programm')
